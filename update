@@ -222,7 +222,7 @@ case "$PLATFORM" in
     x defaults write com.apple.Terminal AutoMarkPromptLines -int 0
 
     # Safari: show the full URL in the address bar (note: this still hides the scheme)
-    x defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
+    # x defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
     # Safari: enable debug menu
     x defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
     # Safari: enable develop menu
@@ -233,14 +233,52 @@ case "$PLATFORM" in
     # Photos: don't open automatically when external media is connected
     x defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
-    # Messages: no automatic emoji
-    x defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false
-    # Messages: no smart quotes
-    x defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
-    # Messages: no smart dashes
-    x defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticDashSubstitutionEnabled" -bool false
-    # Messages: no automatic spell correction
-    x defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticSpellingCorrectionEnabled" -bool false
+    x defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+    x defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+    # Expand print panel by default
+    x defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+    x defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+    x defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+    x defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+    # x sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
+    # x sudo systemsetup -setrestartfreeze on
+
+    # Use scroll gesture with the Ctrl (^) modifier key to zoom
+    x defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
+    x defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
+
+    # Follow the keyboard focus while zoomed in
+    x defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
+    x defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+    x defaults write NSGlobalDomain KeyRepeat -int 1
+    x defaults write NSGlobalDomain InitialKeyRepeat -int 20
+
+    # Require password immediately after sleep or screen saver begins
+    x defaults write com.apple.screensaver askForPassword -int 1
+    x defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+    # Save screenshots to the desktop
+    x defaults write com.apple.screencapture location -string "${HOME}/Desktop"
+
+    # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+    x defaults write com.apple.screencapture type -string "png"
+
+    # Finder: show all filename extensions
+    x defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+    # Finder: show status bar
+    x defaults write com.apple.finder ShowStatusBar -bool true
+
+    # Finder: show path bar
+    x defaults write com.apple.finder ShowPathbar -bool true
+
+    # Display full POSIX path as Finder window title
+    x defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+    x defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
     # Spotlight: configure categories
     # defaults read com.apple.Spotlight orderedItems | sed -E -e 's/^[[:space:]]+//g' | tr -d '()\n' | tr ',' '\n' | awk -F "\n" '{ print "\'" $1 "\' \\\" }'
@@ -348,9 +386,9 @@ fi
 
 # airport
 
-if [ -x /System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport ]; then
-  x ln -sf /System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport $BINDIR
-fi
+# if [ -x /System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport ]; then
+#   x ln -sf /System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport $BINDIR
+# fi
 
 # brew
 
@@ -376,13 +414,9 @@ if exists brew ; then
   # Build a curl that supports HTTP/2
   if ! brew leaves | grep -q curl ; then
     x brew install curl --with-nghttp2
+
     # Force brew to make curl available in PATH
     x brew link curl --force
-  fi
-
-  # Install nodejs-install
-  if ! brew leaves | grep -q "nodejs-install" ; then
-    x brew install "https://raw.githubusercontent.com/wilmoore/nodejs-install/master/share/homebrew/nodejs-install.rb"
   fi
 
 fi
@@ -490,23 +524,23 @@ if exists code ; then
 
   fi
 
-  xmkdir "$DST"
+#   xmkdir "$DST"
 
-  for f in $SRCDIR/etc/code/* ; do
+#   for f in $SRCDIR/etc/code/* ; do
 
-    if [ ! -L "$DST/$(basename $f)" ]; then
-      x rm -rf "$DST/$(basename $f)"
-      x ln -sf "$f" "$DST"
-    fi
+#     if [ ! -L "$DST/$(basename $f)" ]; then
+#       x rm -rf "$DST/$(basename $f)"
+#       x ln -sf "$f" "$DST"
+#     fi
 
-  done
+#   done
 
   packages="PeterJausovec.vscode-docker TeddyDD.fish dbaeumer.vscode-eslint eg2.tslint joelday.docthis stkb.rewrap xaver.clang-format esbenp.prettier-vscode"
 
-  for p in $packages ; do
-    if ! code --list-extensions | grep -q $p ; then
-      x code --install-extension $p
-    fi
-  done
+#   for p in $packages ; do
+#     if ! code --list-extensions | grep -q $p ; then
+#       x code --install-extension $p
+#     fi
+#   done
 
-fi
+# fi

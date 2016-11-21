@@ -3,18 +3,20 @@
 # Documented in git-config(1).
 
 [user]
-    name = Michael Stillwell
+    name = Will Prater
     # Modify locally via git config --local user.email mstillwell@workplace.com
-    email = mjs@beebo.org
+    email = will@superformula.com
 
 [core]
     excludesfile = ~/.gitignore
+	editor = code-insiders --wait
 
 [diff]
     mnemonicprefix = true
     # https://github.com/blog/2288-git-2-11-has-been-released
     indentHeuristic = true
     compactionHeuristic = true
+    tool = default-difftool
 
 [fetch]
     prune = true
@@ -100,14 +102,10 @@
 
 [credential]
     # https://help.github.com/articles/caching-your-github-password-in-git/
-    #helper = osxkeychain
+    helper = osxkeychain
 
-[gitreview]
-    # https://www.mediawiki.org/wiki/Gerrit/git-review
-	remote = origin
+[pull]
+	rebase = preserve
 
-[http]
-	cookiefile = ~/.gitcookies
-
-[include]
-	path = ~/.gitconfig.local
+[difftool "default-difftool"]
+    cmd = code-insiders --wait --diff $LOCAL $REMOTE

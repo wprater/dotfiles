@@ -2,22 +2,27 @@
 
 # tool config
 
+set -x GREP_OPTIONS "--exclude-dir=.svn --exclude-dir=.git --binary-files=without-match"
 set -x LESS "-XMcifR"
-set -x TZ "Europe/London"
+set -x TZ "America/Los_Angeles"
 
 # personal config
 
-set -x GITROOT "git@github.com:ithinkihaveacat"
+# Prefer US English and use UTF-8.
+set -x LANG 'en_US.UTF-8'
+set -x LC_ALL 'en_US.UTF-8'
+
+set -x GITROOT "https://github.com/wprater"
 
 # fish config
 
-set -g CDPATH . ~
-if test -d ~/workspace
-  set -g CDPATH $CDPATH ~/workspace
-end
-if test -d ~/citc
-  set -g CDPATH $CDPATH ~/citc
-end
+# set -        CDPATH . ~
+# if test -d ~/workspace
+#   set -g CDPATH $CDPATH ~/workspace
+# end
+# if test -d ~/citc
+#   set -g CDPATH $CDPATH ~/citc
+# end
 
 # Avoid fish_user_path and instead set PATH directly. fish_user_path can be used
 # to share a PATH across shells and invocations if set as a universal variable;
@@ -74,10 +79,16 @@ prepend_path $d
 #
 #   $ cabal update
 #   $ cabal install pandoc
+<<<<<<< HEAD
 
 set d /Applications/ghc-*.app/Contents/bin
 prepend_path $d
 prepend_path ~/.cabal/bin
+=======
+# set d /Applications/ghc-*.app/Contents/bin
+# append_if_exists $d
+# append_if_exists ~/.cabal/bin
+>>>>>>> general updates. add ssh agent. add 2-line prompt
 
 # Android Tools
 
@@ -136,6 +147,7 @@ set fish_greeting
 set -g __fish_git_prompt_showupstream "auto"
 set -g __fish_git_prompt_showstashstate "1"
 set -g __fish_git_prompt_showdirtystate "1"
+set -g __fish_git_prompt_show_informative_status
 
 # mkdir -p ~/.rubies
 # . $HOME/.config/fish/rubies.fish
@@ -150,10 +162,15 @@ if type -q direnv
   set -x MANPATH (man -w)
 end
 
-if type -q jed
-  set -x EDITOR "jed"
-end
+# if type -q jed
+#   set -x EDITOR "jed"
+# end
 
+# if type -q atom
+#   set -x VISUAL "jed" # or "atom -w"
+# end
+
+<<<<<<< HEAD
 set -x VISUAL $EDITOR
 
 #if type -q code
@@ -165,5 +182,16 @@ type -q pbpaste ; or alias pbpaste "xsel -bo"
 
 . ~/.config/fish/solarized.fish
 . ~/.config/fish/ua.fish
+=======
+if which code-insiders >/dev/null
+  set -x EDITOR "code-insiders -n -w"
+  set -x VISUAL "code-insiders -n"
+end
+
+start-ssh-agent
+
+source ~/.config/fish/aliases.fish
+source ~/.config/fish/solarized.fish
+>>>>>>> general updates. add ssh agent. add 2-line prompt
 
 sourceif ~/.ssh/etc/fish/envrc
