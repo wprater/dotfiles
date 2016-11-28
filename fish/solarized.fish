@@ -60,6 +60,6 @@ set -g fish_color_escape      $cyan
 
 # Used by fish_prompt
 
-set -g fish_color_hostname    $cyan
+set -g fish_color_hostname    $grey
 set -g fish_color_cwd         $yellow
 set -g fish_color_git         $green
