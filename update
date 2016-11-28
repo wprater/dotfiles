@@ -375,6 +375,8 @@ if [ ! -L "$HOME/.config/fish" ]; then
   fi
   x mkdir -p "$HOME/.config"
   x ln -s "$SRCDIR/fish" "$HOME/.config/fish"
+
+  x ln -s "$SRCDIR/omf" "$HOME/.config/omf"
 fi
 
 # Update completions
