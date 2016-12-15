@@ -69,6 +69,8 @@ prepend_path "$HOME/local/google-cloud-sdk/bin"
 set d ~/local/jre*/Contents/Home/bin
 prepend_path $d
 
+set -x JAVA_HOME "/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/"
+
 # ghc
 #
 # Install via:
@@ -195,3 +197,5 @@ source ~/.config/fish/solarized.fish
 >>>>>>> general updates. add ssh agent. add 2-line prompt
 
 sourceif ~/.ssh/etc/fish/envrc
+
+status --is-interactive; and source (rbenv init -|psub)
