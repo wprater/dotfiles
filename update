@@ -193,6 +193,7 @@ case "$PLATFORM" in
 
     # System: disable smart quotes
     x defaults write -g NSAutomaticQuoteSubstitutionEnabled -bool false
+
     # System: disable smart dashes
     x defaults write -g NSAutomaticDashSubstitutionEnabled -bool false
     # System: don't correct spelling automatically
@@ -206,8 +207,11 @@ case "$PLATFORM" in
     x defaults write -g NSAutomaticTextCompletionEnabled -bool false
     # System: don't default to iCloud
     x defaults write -g NSDocumentSaveNewDocumentsToCloud -bool false
+
     # System: speed up mouse (requires logout to take effect?)
-    x defaults write -g com.apple.mouse.scaling -float 6
+    x defaults write -g com.apple.mouse.scaling -float 5
+    x defaults write -g com.apple.trackpad.scaling -float 5.0
+
     # System: enable right click
     x defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonMode -string TwoButton
 
