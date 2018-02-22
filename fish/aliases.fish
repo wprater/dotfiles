@@ -1,2 +1,2 @@
 alias l 'ls -lah'
-alias - 'cd -'
+abbr -a -- - 'cd -'

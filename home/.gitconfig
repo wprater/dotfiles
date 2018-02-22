@@ -3,9 +3,9 @@
 # Documented in git-config(1).
 
 [user]
-    name = Will Prater
+	name = Will Prater
     # Modify locally via git config --local user.email mstillwell@workplace.com
-    email = will@superformula.com
+	email = will@superformula.com
 
 [core]
     excludesfile = ~/.gitignore
@@ -58,12 +58,19 @@
     spop = stash pop
     sapply = stash apply
 
+    tidy = rebase -i @{upstream}
+
     # Given a ref, returns merge commits that involved that ref
     show-merged-by = "!f() { git log --ancestry-path --merges $1..$(git rev-parse --abbrev-ref HEAD); }; f"
 
     # Like "git branch", but sorted by last modified date
     # http://stackoverflow.com/a/10693888/11543
-    branch-by-date = for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short) (%(committerdate:short))'
+    # branch-by-date = branch -vv --sort=-committerdate
+    branch-by-date = for-each-ref --sort=-committerdate refs/heads/ --format='%(authordate:short) %(color:magenta)%(objectname:short) %(color:yellow)%(refname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset)) %(color:blue)%(authorname)%(color:reset)'
+
+    branch-by-date3 = for-each-ref --sort=-committerdate refs/heads --format='%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)'
+    branch-by-date33 = "!r() {git for-each-ref --sort=-committerdate refs/heads --format='%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)'|column -ts'|'}; r"
+
 
     # Ignore/unignore changes to files (like a local .gitignore)
     # http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
@@ -109,3 +116,5 @@
 
 [difftool "default-difftool"]
     cmd = code-insiders --wait --diff $LOCAL $REMOTE
+[rebase]
+	autoStash = true

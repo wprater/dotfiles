@@ -1,4 +1,3 @@
 package docker-machine
-package rbenv
 theme clearance
 theme default

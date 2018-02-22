@@ -81,16 +81,10 @@ set -x JAVA_HOME "/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Ho
 #
 #   $ cabal update
 #   $ cabal install pandoc
-<<<<<<< HEAD
 
 set d /Applications/ghc-*.app/Contents/bin
 prepend_path $d
 prepend_path ~/.cabal/bin
-=======
-# set d /Applications/ghc-*.app/Contents/bin
-# append_if_exists $d
-# append_if_exists ~/.cabal/bin
->>>>>>> general updates. add ssh agent. add 2-line prompt
 
 # Android Tools
 
@@ -142,6 +136,10 @@ prepend_path (realpath "$HOME/.dotfiles/fish/../bin")
 prepend_path "$HOME/local-linux/bin" # $PLATFORM is not readily available, so hardcode
 prepend_path "$HOME/local/bin"
 
+prepend_path "$HOME/.yarn-cache/.global/node_modules/.bin"
+prepend_path "$HOME/.yarn/bin"
+# prepend_path "$HOME/library/python/2.7/bin"
+
 # http://fishshell.com/docs/current/faq.html#faq-greeting
 set fish_greeting
 
@@ -150,9 +148,6 @@ set -g __fish_git_prompt_showupstream "auto"
 set -g __fish_git_prompt_showstashstate "1"
 set -g __fish_git_prompt_showdirtystate "1"
 set -g __fish_git_prompt_show_informative_status
-
-# mkdir -p ~/.rubies
-# . $HOME/.config/fish/rubies.fish
 
 # https://github.com/zimbatm/direnv
 if type -q direnv
@@ -164,38 +159,28 @@ if type -q direnv
   set -x MANPATH (man -w)
 end
 
-# if type -q jed
-#   set -x EDITOR "jed"
-# end
+if which code-insiders >/dev/null
+  set -x EDITOR "code-insiders -n -w"
+  set -x REACT_EDITOR "code-insiders -n -w"
+end
 
-# if type -q atom
-#   set -x VISUAL "jed" # or "atom -w"
-# end
-
-<<<<<<< HEAD
 set -x VISUAL $EDITOR
-
-#if type -q code
-#  set -x VISUAL "code -w"
-#end
 
 type -q pbcopy  ; or alias pbcopy  "xsel -bi"
 type -q pbpaste ; or alias pbpaste "xsel -bo"
 
-. ~/.config/fish/solarized.fish
-. ~/.config/fish/ua.fish
-=======
-if which code-insiders >/dev/null
-  set -x EDITOR "code-insiders -n -w"
-  set -x VISUAL "code-insiders -n"
-end
-
 start-ssh-agent
 
-source ~/.config/fish/aliases.fish
-source ~/.config/fish/solarized.fish
->>>>>>> general updates. add ssh agent. add 2-line prompt
+. ~/.config/fish/ua.fish
+
+sourceif ~/.config/fish/aliases.fish
+sourceif ~/.config/fish/solarized.fish
 
 sourceif ~/.ssh/etc/fish/envrc
 
 status --is-interactive; and source (rbenv init -|psub)
+status --is-interactive; and source (swiftenv init -|psub)
+
+# begin appcenter completion
+appcenter --completion-fish | source
+# end appcenter completion
