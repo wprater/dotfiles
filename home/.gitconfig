@@ -116,5 +116,6 @@
 
 [difftool "default-difftool"]
     cmd = code-insiders --wait --diff $LOCAL $REMOTE
+
 [rebase]
 	autoStash = true

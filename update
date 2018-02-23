@@ -380,7 +380,7 @@ if [ ! -L "$HOME/.config/fish" ]; then
   x mkdir -p "$HOME/.config"
   x ln -s "$SRCDIR/fish" "$HOME/.config/fish"
 
-  x ln -s "$SRCDIR/omf" "$HOME/.config/omf"
+  # x ln -s "$SRCDIR/omf" "$HOME/.config/omf"
 fi
 
 # Update completions
@@ -449,7 +449,7 @@ fi
 
 if exists npm ; then
 
-  packages="docco eslint firebase-tools http-server npm-check-updates serve"
+  packages="n docco eslint firebase-tools http-server npm-check-updates serve"
 
   for p in $packages ; do
     # Pipe to /dev/null to avoid pipe error when returning early via -q
@@ -498,18 +498,18 @@ if [ -e /etc/apt/sources.list.d/vscode.list ] && [ $SUDO -ne 1 ]; then
   x sudo rm -f /etc/apt/sources.list.d/vscode.list
 fi
 
-if ! exists code ; then
-  if [ -d "/Applications/Visual Studio Code.app" ]; then
-    x ln -sf "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" "$BINDIR/code"
-  fi
-fi
+# if ! exists code ; then
+#   if [ -d "/Applications/Visual Studio Code.app" ]; then
+#     x ln -sf "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" "$BINDIR/code"
+#   fi
+# fi
 
-if exists code ; then
+if exists code-insiders ; then
 
   if [ "$PLATFORM" = "linux" ]; then
     DST="$DSTDIR/.config/Code/User"
   else
-    DST="$DSTDIR/Library/Application Support/Code/User"
+    DST="$DSTDIR/Library/Application Support/Code - Insiders/User"
 
     # VSCODEAPP="/Applications/Visual Studio Code.app"
 
@@ -530,16 +530,16 @@ if exists code ; then
 
   fi
 
-#   xmkdir "$DST"
+  xmkdir "$DST"
 
-#   for f in $SRCDIR/etc/code/* ; do
+  for f in $SRCDIR/etc/code/* ; do
 
-#     if [ ! -L "$DST/$(basename $f)" ]; then
-#       x rm -rf "$DST/$(basename $f)"
-#       x ln -sf "$f" "$DST"
-#     fi
+    if [ ! -L "$DST/$(basename $f)" ]; then
+      x rm -rf "$DST/$(basename $f)"
+      x ln -sf "$f" "$DST"
+    fi
 
-#   done
+  done
 
   packages="PeterJausovec.vscode-docker TeddyDD.fish dbaeumer.vscode-eslint eg2.tslint joelday.docthis stkb.rewrap xaver.clang-format esbenp.prettier-vscode"
 
@@ -549,4 +549,4 @@ if exists code ; then
 #     fi
 #   done
 
-# fi
+fi
