@@ -1,47 +1,114 @@
 {
-  "editor.fontFamily": "Source Code Pro",
-  "editor.fontSize": 13,
-  "editor.lineHeight": 0,
+  // Place your settings in this file to overwrite the default settings
+  "html.format.enable": true,
+  "editor.fontFamily": "Operator Mono, Hack, monospace",
+  "editor.fontSize": 16,
+  "editor.rulers": [
+    80,
+    100
+  ],
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "name": "Comment",
+        "scope": "comment",
+        "settings": {
+          "foreground": "#5b677f"
+        }
+      }
+    ]
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true
+  },
+  "workbench.fontAliasing": "antialiased",
+  "typescript.npm": "/usr/local/bin/npm",
+  "editor.lineHeight": 21,
+  // Enables font ligatures
+  "editor.fontLigatures": true,
+  "emmet.syntaxProfiles": {
+    "blade": "html"
+  },
+  "rest-client.enableTelemetry": false,
+  "window.titleBarStyle": "custom",
   "editor.tabSize": 2,
+  "eslint.enable": false,
+  "html.suggest.html5": true,
+  "editor.renderWhitespace": "none",
+  "editor.renderControlCharacters": false,
+  // Controls whether the editor should render indent guides
+  "editor.renderIndentGuides": false,
+  // When enabled, will trim trailing whitespace when you save a file.
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "path-intellisense.extensionOnImport": true,
+  "files.associations": {
+    "*.vue": "vue",
+    "*.js": "javascript",
+    "Fastfile": "ruby",
+    ".couchapprc": "json"
+  },
+  // Format a file on save. A formatter must be available, the file must not be auto-saved, and editor must not be shutting down.
+  "editor.formatOnSave": false,
+  "window.zoomLevel": 0.3,
+  "files.hotExit": "onExitAndWindowClose",
+  "phpformatter.composer": true,
+  "phpformatter.level": "symfony",
+  "workbench.activityBar.visible": false,
+  "editor.renderLineHighlight": "all",
+  "guides.normal.style": "solid",
+  "guides.overrideDefault": true,
+  "explorer.autoReveal": false,
+  "sync.gist": "36ebc12c1274d4a2c1835a82edd455a1",
+  "sync.lastUpload": "2017-12-04T19:44:58.544Z",
+  "sync.autoDownload": false,
+  "sync.autoUpload": false,
+  "sync.lastDownload": "1970-01-01T00:00:00.000Z",
+  "sync.forceDownload": false,
+  "sync.anonymousGist": false,
+  "editor.formatOnPaste": false,
+  "editor.wordWrap": "bounded",
+  "window.openFilesInNewWindow": "on",
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "es5",
+  "prettier.bracketSpacing": false,
+  "prettier.printWidth": 80,
   "editor.acceptSuggestionOnEnter": false,
   "editor.quickSuggestionsDelay": 50,
   "editor.autoClosingBrackets": false,
   "editor.folding": true,
-  "editor.renderIndentGuides": false,
-  "editor.rulers": [80, 100],
-  "editor.wordWrap": "bounded",
-  "editor.renderIndentGuides": false,
-  "editor.renderWhitespace": "boundary",
-  "window.reopenFolders": "all",
-  "emmet.triggerExpansionOnTab": true,
-  "telemetry.enableCrashReporter": false,
-  "telemetry.enableTelemetry": false,
-  "git.enabled": true,
-  "clang-format.fallbackStyle": "Google",
-  "clang-format.style": "file", // uses ".clang-format"
-  "rewrap.wrappingColumn": 80,
-  "typescript.check.tscVersion": false,
-  "markdown.styles": [
-    "https://cdn.rawgit.com/ithinkihaveacat/dotfiles/master/etc/code/markdown.css"
-  ],
-  "git.confirmSync": false,
-  "typescript.referencesCodeLens.enabled": true,
-  "typescript.implementationsCodeLens.enabled": true,
-  "search.useIgnoreFilesByDefault": true,
-  "workbench.colorTheme": "Solarized Dark",
-  "editor.autoIndent": true,
-  "git.enableSmartCommit": true,
-  "editor.wordWrapColumn": 100,
-  "[markdown]": {
-    "editor.wordWrap": "bounded",
-    "editor.quickSuggestions": false
+  "editor.minimap.enabled": true,
+  "guides.active.color.dark": "rgba(157, 188, 126, 0.4)",
+  "sync.host": "",
+  "sync.pathPrefix": "",
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.maxColumn": 80,
+  "editor.minimap.showSlider": "always",
+  "workbench.colorTheme": "Panda Syntax",
+  "extensions.autoUpdate": false,
+  "editor.overviewRulerBorder": false,
+  "files.autoSave": "off",
+  "materialTheme.cache.workbench.settings": {
+    "themeColours": "Palenight",
+    "accent": "Teal",
+    "accentPrevious": "Pink"
   },
-  "workbench.startupEditor": "newUntitledFile",
-  "html.autoClosingTags": false,
-  "docker.showExplorer": false,
-  "search.useIgnoreFiles": true,
-  "extensions.ignoreRecommendations": false,
-  "search.smartCase": true,
-  "workbench.fontAliasing": "auto",
-  "eslint.packageManager": "yarn"
+  "todohighlight.isEnable": false,
+  "rest-client.previewOption": "exchange",
+  "shareCode.openSharedCodeInBrowser": false,
+  "editor.overviewRulerLanes": 4,
+  "editor.hideCursorInOverviewRuler": true,
+  "guides.enabled": true,
+  "gitlens.gitExplorer.files.layout": "auto",
+  "explorer.confirmDelete": false,
+  "sync.quietSync": false,
+  "sync.askGistName": false,
+  "workbench.startupEditor": "none",
+  "editor.find.seedSearchStringFromSelection": false,
+  "xmlTools.splitXmlnsOnFormat": true,
+  "editor.formatOnType": false,
+  "search.globalFindClipboard": true,
+  "gitlens.statusBar.enabled": false,
+  "editor.find.globalFindClipboard": true
 }
