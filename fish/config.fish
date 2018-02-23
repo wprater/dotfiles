@@ -69,7 +69,7 @@ prepend_path "$HOME/local/google-cloud-sdk/bin"
 set d ~/local/jre*/Contents/Home/bin
 prepend_path $d
 
-set -x JAVA_HOME "/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/"
+set -x JAVA_HOME "/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/"
 
 # ghc
 #
@@ -122,10 +122,9 @@ end
 # NODE_VERSIONS is used by direnv and nodejs-install to make different
 # versions of node available; see ~/.direnvrc
 
-set -x NODE_VERSIONS $HOME/.local/share/node/versions
-mkdir -p $NODE_VERSIONS
+set -x N_PREFIX "$HOME/n";
 
-prepend_path $NODE_VERSIONS/(ls $NODE_VERSIONS | sort -n | tail -1)/bin
+prepend_path "$N_PREFIX/bin"
 
 prepend_path /usr/local/sbin
 prepend_path /usr/local/bin
@@ -178,9 +177,9 @@ sourceif ~/.config/fish/solarized.fish
 
 sourceif ~/.ssh/etc/fish/envrc
 
-status --is-interactive; and source (rbenv init -|psub)
-status --is-interactive; and source (swiftenv init -|psub)
+# status --is-interactive; and source (rbenv init -|psub)
+# status --is-interactive; and source (swiftenv init -|psub)
 
 # begin appcenter completion
-appcenter --completion-fish | source
+# appcenter --completion-fish | source
 # end appcenter completion
