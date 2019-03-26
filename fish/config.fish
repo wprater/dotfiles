@@ -2,7 +2,7 @@
 
 # tool config
 
-set -x GREP_OPTIONS "--exclude-dir=.svn --exclude-dir=.git --binary-files=without-match"
+# set -x GREP_OPTIONS "--exclude-dir=.svn --exclude-dir=.git --binary-files=without-match"
 set -x LESS "-XMcifR"
 set -x TZ "America/Los_Angeles"
 
@@ -104,6 +104,9 @@ prepend_path $ANDROID_HOME/tools/bin
 set d ~/.gem/ruby/*/bin
 prepend_path $d
 
+# test -d ~/bin/apache-maven-3.0.3 ; and set -x M2_HOME ~/bin/apache-maven-3.0.3
+# append_path $M2_HOME/bin
+
 # golang
 #
 
@@ -137,7 +140,11 @@ prepend_path "$HOME/local/bin"
 
 prepend_path "$HOME/.yarn-cache/.global/node_modules/.bin"
 prepend_path "$HOME/.yarn/bin"
-# prepend_path "$HOME/library/python/2.7/bin"
+prepend_path "$HOME/usr/local/opt/go/libexec/bin"
+
+test -d ~Library/Python/3.7/bin ; and prepend_path "$HOME/Library/Python/3.7/bin"
+
+test -d ~/bin/flutter/bin ; and prepend_path "$HOME/bin/flutter/bin"
 
 # http://fishshell.com/docs/current/faq.html#faq-greeting
 set fish_greeting
@@ -177,7 +184,7 @@ sourceif ~/.config/fish/solarized.fish
 
 sourceif ~/.ssh/etc/fish/envrc
 
-# status --is-interactive; and source (rbenv init -|psub)
+status --is-interactive; and source (rbenv init -|psub)
 # status --is-interactive; and source (swiftenv init -|psub)
 
 # begin appcenter completion
