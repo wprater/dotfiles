@@ -68,6 +68,8 @@
     # branch-by-date = branch -vv --sort=-committerdate
     branch-by-date = for-each-ref --sort=-committerdate refs/heads/ --format='%(authordate:short) %(color:magenta)%(objectname:short) %(color:yellow)%(refname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset)) %(color:blue)%(authorname)%(color:reset)'
 
+    branch-by-date-remote = ls-remote --sort=-committerdate sn --format='%(authordate:short) %(color:magenta)%(objectname:short) %(color:yellow)%(refname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset)) %(color:blue)%(authorname)%(color:reset)'
+
     branch-by-date3 = for-each-ref --sort=-committerdate refs/heads --format='%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)'
     branch-by-date33 = "!r() {git for-each-ref --sort=-committerdate refs/heads --format='%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)'|column -ts'|'}; r"
 
