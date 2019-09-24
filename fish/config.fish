@@ -59,6 +59,8 @@ prepend_path "$HOME/local/google-cloud-sdk/platform/google_appengine/goroot/bin"
 prepend_path "$HOME/local/google-cloud-sdk/platform/google_appengine"
 prepend_path "$HOME/local/google-cloud-sdk/bin"
 
+prepend_path "$HOME/local/flutter/bin"
+
 # java
 #
 # 1. Choose JRE from
@@ -184,7 +186,7 @@ sourceif ~/.config/fish/solarized.fish
 
 sourceif ~/.ssh/etc/fish/envrc
 
-status --is-interactive; and source (rbenv init -|psub)
+# status --is-interactive; and source (rbenv init -|psub)
 # status --is-interactive; and source (swiftenv init -|psub)
 
 # begin appcenter completion

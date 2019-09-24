@@ -43,8 +43,6 @@
   "html.suggest.html5": true,
   "editor.renderWhitespace": "boundary",
   "editor.renderControlCharacters": false,
-  // Controls whether the editor should render indent guides
-  "editor.renderIndentGuides": false,
   // When enabled, will trim trailing whitespace when you save a file.
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
@@ -88,7 +86,7 @@
   "sync.pathPrefix": "",
   "editor.minimap.maxColumn": 80,
   "editor.minimap.showSlider": "always",
-  "workbench.colorTheme": "Dracula",
+  "workbench.colorTheme": "Monokai Pro (Filter Ristretto)",
   "extensions.autoUpdate": false,
   "editor.overviewRulerBorder": false,
   "files.autoSave": "off",
@@ -128,7 +126,6 @@
     "suppressShowKeyBindingsNotice": true
   },
   "terminal.integrated.fontSize": 16,
-  "workbench.iconTheme": "eq-material-theme-icons-darker",
   "gitlens.historyExplorer.enabled": true,
   "debug.openDebug": "openOnDebugBreak",
   "debug.toolBarLocation": "docked",
@@ -147,14 +144,28 @@
   "gist.defaultPrivate": true,
   "rest-client.environmentVariables": {
     "$shared": {
-      "version": "v1"
+      "host": "http://localhost:8080"
     },
     "local": {
-      "version": "v2",
-      "host": "http://7cc5bd15.ngrok.io"
+      "host": "http://localhost:8080"
+    },
+    "ngrok": {
+      "host": "https://dv-local.ngrok.io"
     },
     "azure": {
       "host": "https://mock-server.azurewebsites.net"
     }
-  }
+  },
+  "bracket-pair-colorizer-2.showBracketsInGutter": true,
+  "vscode-home-assistant.longLivedAccessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIxNWQwZjY3OWQ5MmM0ODdhYmQ2NDZmOGQzNDM4MTQxNSIsImlhdCI6MTU1OTE5NjQ5MywiZXhwIjoxODc0NTU2NDkzfQ.uDFA-I5EptXbAfGKFQT-k6wrExViImYGfQCD-CjaWlY",
+  "vscode-home-assistant.hostUrl": "http://hassio.local:8123",
+  "editor.renderIndentGuides": false,
+  "dart.previewToStringInDebugViews": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.iconTheme": "Monokai Pro (Filter Ristretto) Icons",
+  "dart.previewFlutterUiGuides": true,
+  "dart.previewFlutterUiGuidesCustomTracking": true,
+  "terminal.integrated.shell.osx": "/usr/local/bin/fish"
 }

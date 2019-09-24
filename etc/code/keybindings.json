@@ -125,5 +125,9 @@
   {
     "key": "ctrl+shift+f",
     "command": "azureFunctionsExplorer.focus"
+  },
+  {
+    "key": "alt+cmd+g v",
+    "command": "workbench.view.extension.gitlens"
   }
 ]
